@@ -6,7 +6,6 @@ import {
 } from './js/message-izi.js';
 import { getGalleryData } from './js/paxabay-api.js';
 import { renderGallery, validateGalleryData } from './js/render-functions.js';
-import axios from 'axios';
 
 const form = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');

@@ -3,7 +3,6 @@ import {
   MESSAGES_BG_COLORS,
   showInfoMessage,
 } from './message-izi.js';
-import axios from 'axios';
 
 const options = {
   method: 'GET',
