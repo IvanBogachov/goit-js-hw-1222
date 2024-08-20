@@ -1,37 +1,36 @@
+import axios from 'axios';
 import {
   MESSAGES,
   MESSAGES_BG_COLORS,
   showInfoMessage,
 } from './message-izi.js';
 
-const options = {
-  method: 'GET',
-};
+axios.defaults.baseURL = 'https://pixabay.com/api/';
 const API_KEY = '45418693-8ae3627eda45814ae2d20cf49';
-const API_URL = 'https://pixabay.com/api/?';
 
-export function getGalleryData(queryValue) {
-  const searchParams = new URLSearchParams({
+export async function getGalleryData(queryValue, page) {
+  const searchParams = {
     key: API_KEY,
     q: queryValue,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
-  });
+    per_page: 15,
+    page: page,
+  };
 
-  return fetch(API_URL + searchParams, options)
-    .then(response => {
-      if (!response.ok) {
-        showInfoMessage(MESSAGES.error, MESSAGES_BG_COLORS.orange);
-        return null;
-      }
-      return response.json();
-    })
-    .catch(err => {
+  try {
+    const response = await axios.get('', { params: searchParams });
+    return response.data;
+  } catch (err) {
+    if (err.response) {
+      showInfoMessage(MESSAGES.error, MESSAGES_BG_COLORS.orange);
+    } else {
       showInfoMessage(
-        `${MESSAGES.exception} ERROR:  ${err}`,
+        `${MESSAGES.exception} ERROR:  ${err.message}`,
         MESSAGES_BG_COLORS.orange
       );
-      return null;
-    });
+    }
+    return null;
+  }
 }

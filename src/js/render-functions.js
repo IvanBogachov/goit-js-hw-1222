@@ -5,8 +5,13 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function renderGallery(data, tagToInsert) {
-  tagToInsert.innerHTML = markup(data);
+export function renderGallery(data, tagToInsert, append = false) {
+  const markupString = markup(data);
+  if (append) {
+    tagToInsert.insertAdjacentHTML('beforeend', markupString);
+  } else {
+    tagToInsert.innerHTML = markupString;
+  }
 
   lightbox.refresh();
 }
