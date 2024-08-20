@@ -73,7 +73,7 @@ async function onLoadMore() {
 }
 
 function smoothScroll() {
-  const { height: cardHeight } = document
+  const cardHeight = document
     .querySelector('.gallery')
     .firstElementChild.getBoundingClientRect();
 
