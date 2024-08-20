@@ -4,7 +4,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-const gallery = document.querySelector('.gallery');
 
 export function renderGallery(data, tagToInsert, append = false) {
   const markupString = markup(data);
@@ -48,7 +47,8 @@ function markup(data) {
     )
     .join('');
 }
-export function validateGalleryData(galleryData, gallery) {
+
+export function validateGalleryData(galleryData) {
   if (!galleryData) {
     gallery.innerHTML = '';
     return false;
