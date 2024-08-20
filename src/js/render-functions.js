@@ -4,6 +4,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+const gallery = document.querySelector('.gallery');
 
 export function renderGallery(data, tagToInsert, append = false) {
   const markupString = markup(data);
