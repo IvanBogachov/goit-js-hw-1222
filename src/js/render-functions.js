@@ -47,7 +47,7 @@ function markup(data) {
     )
     .join('');
 }
-export function validateGalleryData(galleryData) {
+export function validateGalleryData(galleryData, gallery) {
   if (!galleryData) {
     gallery.innerHTML = '';
     return false;
