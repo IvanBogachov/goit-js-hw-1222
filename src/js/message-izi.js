@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 
 const MESSAGES = {
   info: 'Please enter a value in the search field!',
-  endOfSearch: `We're sorry, but you've reached the end of search results.`,
+  // endOfSearch: `We're sorry, but you've reached the end of search results.`,
   warning:
     'Sorry, there are no images matching your search query. Please try again!',
   error:
